@@ -33,6 +33,17 @@ export const ADD_PERSON = gql`
   }
 `
 
+export const ADD_BOAT = gql`
+  mutation AddPerson($year: String!, $make: String!, $model: String!, $price: String!, $id:id!, $personId:personId) {
+    addPerson(id: $id, make: $make, model: $model, price: $price,id: $id, personId:$personId) {
+      year
+      make
+      model
+      price
+    }
+  }
+`
+
 export const UPDATE_PERSON = gql`
   mutation UpdatePerson($id: String!, $firstName: String!, $lastName: String!) {
     updatePerson(id: $id, firstName: $firstName, lastName: $lastName) {

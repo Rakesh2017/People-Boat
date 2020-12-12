@@ -14,17 +14,22 @@ const PersonWithBoats = ({ display, id }) => {
             listStyleType: 'none',
             display: 'grid',
             gridGap: '10px',
-            padding: '10px'
+            padding: '10px',
+            border: 'solid 1px',
+            borderRadius: '3px',
         },
         child: {
-            border: 'solid 1px',
-            padding:'10px'
+            border: 'solid 1px grey',
+            borderRadius: '3px',
+            padding:'10px',
+            background: 'grey'
         },
         grey: {
-            color: 'grey'
+            color: 'whiteSmoke'
         },
         bold: {
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            color: 'orange'
         }
     })
 
@@ -33,12 +38,11 @@ const PersonWithBoats = ({ display, id }) => {
     if (error) return `Errror! ${error.message}`
     return (
         <div style={styles.container}>
-            {console.log('data=>', data.personWithboats)}
             <h3>My Boats</h3>
             <ul style={styles.list}>
                 {
                     data.personWithboats.map(item => {
-                        return <li style={styles.child}> <span style={styles.grey}>Model:</span> <span style={styles.grey}>{item.model}</span>, <span style={styles.grey}>Year:</span> {item.year}, <span style={styles.grey}>Price:</span> ${item.price}, <span style={styles.grey}>Make:</span>{item.make}</li>
+                        return <li style={styles.child}> <span style={styles.grey}>Model:</span> <span style={styles.bold}>{item.model},</span> <span style={styles.grey}>Year:</span> <span style={styles.bold}>{item.year},</span> <span style={styles.grey}>Price:</span> <span style={styles.bold}>${item.price},</span> <span style={styles.grey}>Make:</span> <span style={styles.bold}>{item.make}</span></li>
                     })
                 }
             </ul>
